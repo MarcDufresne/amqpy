@@ -126,7 +126,7 @@ class Connection(AbstractChannel):
             port = parts.port or 5672
             userid = unquote(parts.username or '') or 'guest'
             password = unquote(parts.password or '') or 'guest'
-            virtual_host = unquote(parts.path or '/')
+            virtual_host = unquote(parts.path[1:] or '/')
 
         # save connection parameters
         self._host = host
